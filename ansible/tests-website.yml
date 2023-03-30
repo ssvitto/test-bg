@@ -1,0 +1,21 @@
+---
+- name: Create test website,folder and copy files
+  hosts: win
+  become_method: runas
+  tasks:
+    - name: Create directory structure
+      ansible.windows.win_file:
+        path: C:\inetpub\wwwroot\Website
+        state: directory
+        
+    - name: Create test website on IIS
+      win_iis_website:
+        name: "Website"
+        state: started
+        bindings:
+          - protocol: http
+            port: 80
+            hostname: "{{ inventory_hostname }}"
+        app_pool: "DefaultAppPool"
+        physical_path: C:\inetpub\wwwroot\Website
+

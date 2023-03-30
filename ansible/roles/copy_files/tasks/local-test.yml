@@ -1,0 +1,22 @@
+- name: create test.txt
+  copy:
+    dest: "{{ role_path }}/files/test.txt"
+    content: ""
+  delegate_to: localhost
+
+# - name: create test.txt
+#   copy:
+#     dest: "{{ role_path }}/templates/default.j2"
+#     content: |
+#       <html>
+#       <head>
+#         <title>{{ ansible_date_time.date }}</title>
+#       </head>
+#       <body>
+#         <h1>Current date and time:</h1>
+#         <p>{{ ansible_date_time.date }}</p>
+#         <p>{{ ansible_date_time.time }}</p>
+#       </body>
+#       </html>
+#   delegate_to: localhost
+

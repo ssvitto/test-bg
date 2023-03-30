@@ -1,0 +1,11 @@
+---
+- name: Install IIS on Windows
+  hosts: win
+  become_method: runas
+  tasks:
+    - name: Install IIS on Windows
+      win_feature:
+        name: Web-Server
+        state: present
+
+  

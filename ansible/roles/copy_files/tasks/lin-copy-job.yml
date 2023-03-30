@@ -1,0 +1,22 @@
+- name: Copy local test.txt
+  ansible.builtin.copy:
+    src: test.txt
+    dest: /etc/httpd/conf.d/test.txt
+    owner: root
+    group: root
+    mode: '0644'
+  when: "'linux' in group_names"
+  become: true
+  become_user: root 
+
+- name: Copy template
+  ansible.builtin.template:
+    src: default.j2
+    #dest: "{{ root_folder }}/default.html"
+    dest: /etc/httpd/conf.d/default.html
+    owner: root
+    group: root
+    mode: '0644' 
+  when: "'linux' in group_names"
+  become: true
+  become_user: root 

@@ -1,0 +1,30 @@
+---
+- name: Install Apache on Linux 
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Install Apache on Linux
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Change httpd.conf to listen on port 8080
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen\s+80$'
+        line: 'Listen 8080'
+      notify:
+      - Restart apache
+
+    - name: Ensure apache is running
+      ansible.builtin.service:
+        name: httpd
+        state: started
+
+  handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
+
+

@@ -1,0 +1,5 @@
+---
+  - name: copy files for linux and windows
+    hosts: [win, linux]
+    roles:
+      - copy_files

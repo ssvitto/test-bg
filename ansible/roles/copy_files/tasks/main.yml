@@ -1,0 +1,10 @@
+---
+- name: copy files
+  block:
+    - include_tasks: local-test.yml
+      tags: test.txt
+    - include_tasks: lin-copy-job.yml
+      tags: lin-copy
+    - include_tasks: win-copy-job.yml
+      tags: win-copy
+      

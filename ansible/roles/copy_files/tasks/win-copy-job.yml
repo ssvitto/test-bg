@@ -1,0 +1,18 @@
+- name: Copy local test.txt
+  ansible.windows.win_copy:
+    src: test.txt
+    dest: C:\inetpub\wwwroot\Website\test.txt
+  become_method: runas
+  when: "'win' in group_names"
+
+- name: Copy template
+  ansible.windows.win_template:
+    # src: /mytemplates/file.conf.j2
+    src: default.j2
+    dest: C:\inetpub\wwwroot\Website\default.html
+  become_method: runas
+  when: "'win' in group_names"
+
+  
+
+  
