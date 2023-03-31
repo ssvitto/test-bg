@@ -19,9 +19,9 @@ Tip:
 -	Use only ansible and ansible modules. 😊
 
 
-#############################
+#######################################################################################################
 
-Final version:
+### Final version:
 
 1) There are 2 vm's:
 - centos7
