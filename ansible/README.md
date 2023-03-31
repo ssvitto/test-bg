@@ -28,14 +28,11 @@ Final version:
 - winserver 2016
 
 2) Build an inventory with 2 groups [win] & [linux] - describe in the "inventory.ini" file
-in "ansible.cfg" was added lines
-[defaults]
-host_key_checking = False
 
-3)
-Install apache on the Linux machine - describe in the "apache-linux.yml" file.
-Install IIS on the window machine - describe in the "iis-win.yml" file.
-Using ansible, change httpd.conf to listen only on port 8080 - describe in the "apache-linux.yml" file.
+
+3) - Install apache on the Linux machine - describe in the "apache-linux.yml" file.
+   - Install IIS on the window machine - describe in the "iis-win.yml" file.
+   - Using ansible, change httpd.conf to listen only on port 8080 - describe in the "apache-linux.yml" file.
 
  4) Create a test website on the IIS on port 80 using ansible - describe in the "test-site.yml" file.
  5) Create an empty test.txt file and BONUS file - describe in the "files-copy.yml" file.
