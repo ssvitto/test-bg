@@ -5,7 +5,7 @@
   become_method: runas
   when: "'win' in group_names"
 
-- name: Copy local test.txt
+- name: Copy local default.html
   ansible.windows.win_copy:
     src: default.html
     dest: C:\inetpub\wwwroot\test-site\index.html

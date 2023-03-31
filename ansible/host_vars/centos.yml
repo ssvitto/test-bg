@@ -1,4 +1,4 @@
 ansible_host: 192.168.88.120
 ansible_user: ansible
 ansible_password: qwer*999
-root_folder: /etc/httpd/conf.d
+root_folder: "/var/www/html"

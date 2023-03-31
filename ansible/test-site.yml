@@ -1,5 +1,5 @@
 ---
-- name: Create test website,folder and copy files
+- name: Create test pool,directory and site
   hosts: win
   become_method: runas
   tasks:
@@ -10,7 +10,7 @@
 
     - name: Create directory structure
       ansible.windows.win_file:
-        path: C:\inetpub\wwwroot\test-site
+        path: "{{ SITEDIR }}"
         state: directory
 
     - name: Turn off default site
@@ -23,7 +23,7 @@
         name: "test-site"
         state: started
         application_pool: test-pool
-        physical_path: C:\inetpub\wwwroot\test-site
+        physical_path: "{{ SITEDIR }}"
         ip: "*"
         port: 80
         hostname: "test-site.xyz"  

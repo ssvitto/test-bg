@@ -8,4 +8,4 @@ ansible_winrm_server_cert_validation: ignore
 
 ############################
 
-SITEDIR: C:\inetpub\wwwroot\Website
+SITEDIR: C:\inetpub\wwwroot\test-site

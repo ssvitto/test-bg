@@ -1,5 +1,5 @@
 ---
-- name: Install IIS on Windows
+- name: Install IIS on Windows Server
   hosts: win
   become_method: runas
   tasks:

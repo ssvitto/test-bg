@@ -1,7 +1,7 @@
 - name: Copy local test.txt
   ansible.builtin.copy:
     src: test.txt
-    dest: /var/www/html/test.txt
+    dest: "{{ root_folder }}/test.txt"
     owner: root
     group: root
     mode: '0644'
@@ -9,10 +9,10 @@
   become: true
   become_user: root 
 
-- name: Copy local test.txt
+- name: Copy local default.html
   ansible.builtin.copy:
     src: default.html
-    dest: /var/www/html/index.html
+    dest: "{{ root_folder }}/index.html"
     owner: root
     group: root
     mode: '0644'
