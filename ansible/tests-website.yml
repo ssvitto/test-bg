@@ -3,19 +3,31 @@
   hosts: win
   become_method: runas
   tasks:
+    - name: Create a new application pool in 'Started' state
+      community.windows.win_iis_webapppool:
+        name: test-pool
+        state: started
+
     - name: Create directory structure
       ansible.windows.win_file:
-        path: C:\inetpub\wwwroot\Website
+        path: C:\inetpub\wwwroot\test-site
         state: directory
-        
+
+    - name: Turn off default site
+      win_iis_website:
+        name: "Default Web Site"
+        state: stopped
+
     - name: Create test website on IIS
       win_iis_website:
-        name: "Website"
+        name: "test-site"
         state: started
-        bindings:
-          - protocol: http
-            port: 80
-            hostname: "{{ inventory_hostname }}"
-        app_pool: "DefaultAppPool"
-        physical_path: C:\inetpub\wwwroot\Website
+        application_pool: test-pool
+        physical_path: C:\inetpub\wwwroot\test-site
+        ip: "*"
+        port: 80
+        hostname: "test-site.xyz"  
+
+
+   
 

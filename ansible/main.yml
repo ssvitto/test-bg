@@ -1,0 +1,5 @@
+- import_playbook: apache-linux.yml
+- import_playbook: iis-win.yml
+- import_playbook: tests-website.yml
+- import_playbook: files-copy.yml
+- import_playbook: pool-restart.yml

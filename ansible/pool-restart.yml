@@ -1,0 +1,9 @@
+---
+- name: Recycle app pool of new test website
+  hosts: win
+  become_method: runas
+  tasks:
+    - name: Recycle app pool
+      community.windows.win_iis_webapppool:
+        name: test-pool
+        state: restarted
